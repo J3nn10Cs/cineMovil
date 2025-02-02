@@ -1,5 +1,7 @@
 
-//definiendo las reglas de negocio
+//DOMAIN -> definiendo las reglas de negocio
+
+//
 class Movie {
   final bool adult;
   final String backdropPath;
