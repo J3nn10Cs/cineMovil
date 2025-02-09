@@ -6,6 +6,6 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       centerTitle: true
     ),
-    colorSchemeSeed: Color.fromARGB(255, 13, 82, 255)
+    colorSchemeSeed: Color.fromARGB(255, 28, 16, 243)
   );
 }

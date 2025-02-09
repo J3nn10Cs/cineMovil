@@ -49,6 +49,7 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
         children: [
           //en caso no hay ni sub ni title no lo renderizamos pero, si son diferentes de null si
           if(widget.title != null || widget.subtitle != null)
+            //* Widget del titulo
             _Title(title: widget.title,subtitle: widget.subtitle,),
           Expanded(
             child: ListView.builder(
@@ -162,8 +163,8 @@ class _Title extends StatelessWidget {
             FilledButton.tonal(
               //para que el boton sea mas pequeño
               style: ButtonStyle(visualDensity: VisualDensity.compact),
-              onPressed: (){}, 
-              child: Text(subtitle!)
+              onPressed: (){},
+              child: Text(subtitle!),
             )
 
         ],
