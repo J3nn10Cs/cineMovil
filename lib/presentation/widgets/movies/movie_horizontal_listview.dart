@@ -98,9 +98,10 @@ class _Slide extends StatelessWidget {
                     if(loadingProgress != null){
                       return Center(child: CircularProgressIndicator());
                     }
+                    //Configuracion de la ruta 
                     return GestureDetector(
                       //para poder regresar
-                      onTap: () => context.push('/movie/${movie.id}'),
+                      onTap: () => context.push('/home/0/movie/${movie.id}'),
                       child: FadeIn(child: child),
                     );
                   },

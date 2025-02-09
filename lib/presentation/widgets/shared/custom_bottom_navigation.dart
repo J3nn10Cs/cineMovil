@@ -1,35 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomBottomNavigation extends StatefulWidget {
-  const CustomBottomNavigation({super.key});
+class CustomBottomNavigation extends StatelessWidget {
 
-  @override
-  State<CustomBottomNavigation> createState() => _CustomBottomNavigationState();
-}
+  final int indexPage;
 
-class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
-  int selectedIndex = 0;
+  const CustomBottomNavigation({super.key, required this.indexPage});
 
   void onItemTapped(BuildContext context, int index){
-
-    // Actualizar el índice seleccionado
-    setState(() {
-      selectedIndex = index; 
-    });
-
+    
     switch(index){
       case 0 :
-        context.go('/');
+        context.go('/home/0');
         break;
       case 1 :
-        context.go('/categories');
+        context.go('/home/1');
         break;
       case 2 :
-        context.go('/favorites');
+        context.go('/home/2');
         break;
       case 3 :
-        context.go('/setting');
+        context.go('/home/3');
         break;
     }
   }
@@ -39,7 +30,7 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
     return BottomNavigationBar(
       //para evitar el cambio de tamaño
       type: BottomNavigationBarType.fixed,
-      currentIndex: selectedIndex,
+      currentIndex: indexPage,
       unselectedItemColor: Colors.black,
       selectedItemColor: Colors.blueAccent,
       elevation: 1,
