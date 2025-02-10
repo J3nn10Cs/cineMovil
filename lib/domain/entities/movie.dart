@@ -1,8 +1,14 @@
 
 //DOMAIN -> definiendo las reglas de negocio
+import 'package:isar/isar.dart';
+part 'movie.g.dart';
 
+@collection
 //
 class Movie {
+  //id de isar
+  Id? isarId;
+
   final bool adult;
   final String backdropPath;
   final List<String> genreIds;
