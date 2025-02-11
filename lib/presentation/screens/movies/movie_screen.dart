@@ -1,11 +1,8 @@
-import 'dart:math';
-
-import 'package:animate_do/animate_do.dart';
-import 'package:cinemapedia/domain/entities/movie.dart';
-import 'package:cinemapedia/presentation/providers/movies/movie_details_info_provider.dart';
-import 'package:cinemapedia/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cinemapedia/domain/entities/movie.dart';
+import 'package:cinemapedia/presentation/providers/providers.dart';
 
 class MovieScreen extends ConsumerStatefulWidget {
   static const name = 'movie-home';
@@ -15,7 +12,6 @@ class MovieScreen extends ConsumerStatefulWidget {
   @override
   MovieScreenState createState() => MovieScreenState();
 }
-
 
 class MovieScreenState extends ConsumerState <MovieScreen> {
   //los widgets solo llaman providers
@@ -199,14 +195,14 @@ class _ActorByMovie extends ConsumerWidget {
 }
 
 //* Imagen
-class _CustomSliverAppBar extends StatelessWidget {
+class _CustomSliverAppBar extends ConsumerWidget {
   final Movie movie;
   const _CustomSliverAppBar({
     required this.movie,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
 
     final size = MediaQuery.of(context).size;
 
@@ -218,7 +214,10 @@ class _CustomSliverAppBar extends StatelessWidget {
       //Agregamos el icono de favoritos
       actions: [
         IconButton(
-          onPressed: (){}, 
+          onPressed: (){
+            //escuchamos al provide
+            ref.watch(localStorageProvider).toggleFavorite(movie);
+          },
           icon: Icon(
             Icons.favorite_outline_sharp,
           ),
